@@ -32,10 +32,30 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
-
+.env.local
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI agent instruction files
+AGENTS.md
+**/AGENTS.md
+CLAUDE.md
+**/CLAUDE.md
+GEMINI.md
+**/GEMINI.md
+.cursor/rules/
+.github/copilot-instructions.md
+
+# OpenCode
+.opencode/
+opencode.json
+opencode.jsonc
+
+# Other AI coding tools
+.claude/
+.gemini/
+.windsurf/
