@@ -1,4 +1,13 @@
-const SubContentHeader = ({ title, subTitle, description }) => {
+type SubContentHeaderProps = {
+  title: string;
+  subTitle: string;
+  description: string;
+};
+const SubContentHeader = ({
+  title,
+  subTitle,
+  description,
+}: SubContentHeaderProps) => {
   return (
     <div>
       <p className="text-sm font-semibold uppercase tracking-widest text-red-500">

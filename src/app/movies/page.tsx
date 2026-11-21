@@ -2,7 +2,7 @@
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 import SubContentHeader from "@/components/SubContentHeader";
-import { Check } from "lucide-react";
+import { Check, Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -232,19 +232,19 @@ export default function MoviesPage() {
         {/* Statistics */}
         <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3">
           <div className="rounded-xl border border-white/10 bg-white/3 p-5">
-            <p className="text-sm text-gray-400">Total Movies</p>
+            <p className="text-lg text-gray-400">Total Movies</p>
             <p className="mt-2 text-3xl font-bold">{movies.length}</p>
           </div>
 
           <div className="rounded-xl border border-white/10 bg-white/3 p-5">
-            <p className="text-sm text-gray-400">Watched</p>
+            <p className="text-lg text-gray-400">Watched</p>
             <p className="mt-2 text-3xl font-bold">
               {movies.filter((movie) => movie.watched).length}
             </p>
           </div>
 
           <div className="col-span-2 rounded-xl border border-white/10 bg-white/3 p-5 md:col-span-1">
-            <p className="text-sm text-gray-400">Not Watched</p>
+            <p className="text-lg text-gray-400">Not Watched</p>
             <p className="mt-2 text-3xl font-bold">
               {movies.filter((movie) => !movie.watched).length}
             </p>
@@ -388,8 +388,18 @@ export default function MoviesPage() {
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="text-lg font-bold">{movie.title}</h3>
 
-                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">
-                    {movie.watched ? "Watched" : "Unwatched"}
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">
+                    {movie.watched ? (
+                      <>
+                        <Eye className="h-4 w-4 text-green-400" />
+                        <span className=" text-green-400">Watched</span>
+                      </>
+                    ) : (
+                      <>
+                        <EyeOff className="h-4 w-4 text-gray-400" />
+                        <span className="text-gray-400">Unwatched</span>
+                      </>
+                    )}
                   </span>
                 </div>
 
