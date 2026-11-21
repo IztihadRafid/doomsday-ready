@@ -96,7 +96,7 @@ A full-stack application that helps MCU fans prepare for _Avengers: Doomsday_ by
    npm run dev
    ```
 
-6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+6. Open [http://localhost:3000](https://doomsday-ready-ten.vercel.app) in your browser.
 
 ## API Endpoints
 
