@@ -1,69 +1,161 @@
+import Link from "next/link";
+import banner from "../../public/assets/banner.webp";
+import moviesIcon from "../../public/assets/movies.png";
+import bookingIcon from "../../public/assets/booking.png";
+import rewatchIcon from "../../public/assets/rewatch.png";
 import Image from "next/image";
+import Footer from "@/components/Footer";
+import { ArrowRight } from "lucide-react";
+const features = [
+  {
+    id: "1",
+    title: "Movies",
+    description:
+      "Manage your MCU movie collection, set prerequisites, and track what you have watched.",
+    icon: moviesIcon,
+    href: "/movies",
+  },
+  {
+    id: "2",
+    title: "Rewatch Plan",
+    description:
+      "Discover which movies to watch before Avengers: Doomsday and track your progress.",
+    icon: rewatchIcon,
+    href: "/rewatch",
+  },
+  {
+    id: "3",
+    title: "Watch Party",
+    description:
+      "Find the right cinema bundle combination for your opening-night group.",
+    icon: bookingIcon,
+    href: "/booking",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <main className="min-h-screen bg-[#09090f] text-white">
+      {/* Navbar */}
+      <header className="border-b border-white/10">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+          <Link href="/" className="text-xl font-bold tracking-wide">
+            DOOMSDAY<span className="text-red-500"> READY</span>
+          </Link>
+          <nav className="hidden items-center gap-8 text-gray-100 md:flex">
+            <Link href="/movies" className="hover:text-red-500">
+              Movies
+            </Link>
+            <Link href="/rewatch" className="hover:text-red-500">
+              Rewatch Plan
+            </Link>
+            <Link href="/booking" className="hover:text-red-500">
+              Booking
+            </Link>
+          </nav>
+          <Link
+            href="/movies"
+            className="rounded-lg bg-red-600 px-5 py-3 text-sm font-semibold hover:bg-red-700"
+          >
+            Get Started
+          </Link>
+        </div>
+      </header>
+
+      {/* Hero Section*/}
+      <section className="relative overflow-hidden">
         <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src={banner}
+          alt="Doomsday Ready Banner"
           priority
+          className="absolute inset-0 w-full object-cover opacity-60"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+        <div className="absolute inset-0 bg-linear-to-r from-[#09090f] via-[#09090f]/40 to-transparent" />
+        <div className="relative mx-auto max-w-7xl px-6 py-28 md:py-36">
+          <div className="max-w-3xl">
+            <p className="mb-6 text-sm font-semibold uppercase tracking-[0.3em] text-red-500">
+              The ultimate MCU rewatch companion
+            </p>
+            <h1 className="text-5xl font-black leading-tight tracking-tight md:text-7xl">
+              BEFORE THE
+              <br />
+              <span className="text-red-500">DOOMSDAY</span>
+              <br />
+              BE READY<span className="text-red-500">!</span>
+            </h1>
+
+            <p className="mt-7 max-w-xl text-lg leading-8 text-gray-300">
+              The multiverse is approaching its biggest threat. Get your MCU
+              movie timeline ready, follow your rewatch plan, and prepare for
+              opening night.
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link
+                href="/movies"
+                className="rounded-lg bg-red-600 px-7 py-3 font-semibold hover:bg-red-700"
+              >
+                Manage Movies
+              </Link>
+              <Link
+                href="/rewatch"
+                className="rounded-lg border border-white/20 px-7 py-3 font-semibold hover:bg-white/10"
+              >
+                View Rewatch Plan
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Features */}
+      <section className="border-t border-gray-800 bg-[#0e0e16]">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="mb-12">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-red-500">
+              Your mission
+            </p>
+            <h2 className="mt-3 text-3xl font-bold md:text-4xl">
+              Everything you need to get ready
+            </h2>
+            <p className="mt-3 text-gray-400">
+              Three simple tools. One mission: be ready for Doomsday.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {features.map((feature) => (
+              <Link
+                key={feature.id}
+                href={feature.href}
+                className="group rounded-xl border border-white/10 bg-white/3 p-7 transition hover:-translate-y-1 hover:border-red-500/50 hover:bg-white/6"
+              >
+                <div className="flex items-center justify-between">
+                  <Image
+                    src={feature.icon}
+                    alt={`${feature.title} icon`}
+                    className="w-10 h-10 "
+                  />
+                </div>
+                <h3 className="mt-8 text-xl font-bold group-hover:text-red-500">
+                  {feature.title}
+                </h3>
+                <p className="mt-3 min-h-20 leading-7 text-gray-400">
+                  {feature.description}
+                </p>
+                <p className="mt-6 font-semibold text-red-500">
+                  <span className="flex items-center gap-1">
+                    Explore feature <ArrowRight />
+                  </span>
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Footer */}
+      <Footer></Footer>
+    </main>
   );
 }
