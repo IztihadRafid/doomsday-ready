@@ -79,7 +79,7 @@ export default function BookingPage() {
           color: "#ffffff",
           confirmButtonColor: "#e11d48",
           background: "#1e1e2f",
-          text: "An error occurred while adding the cinema.",
+          text: "Cinema Already exists or an error occurred while adding the cinema.",
         });
         return;
       }
